@@ -143,6 +143,16 @@ const cdnConfig = [
         name: 'quill',
         scope: 'Quill',
         js: 'quill.min.js'
+    },
+    {
+        name: 'js-cookie',
+        scope: 'Cookies',
+        js: 'js.cookie.min.js'
+    },
+    {
+        name: 'clipboard',
+        scope: 'ClipboardJS',
+        js: 'clipboard.min.js'
     }
 ]
 
