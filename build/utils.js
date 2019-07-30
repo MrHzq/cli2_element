@@ -138,6 +138,11 @@ const cdnConfig = [
         scope: 'ELEMENT',
         js: 'index.js',
         css: 'theme-chalk/index.css'
+    },
+    {
+        name: 'quill',
+        scope: 'Quill',
+        js: 'quill.min.js'
     }
 ]
 
@@ -178,7 +183,7 @@ function getExternalModules(config) {
             // 新增要忽略的资源
             externalModules[item.name] = item.scope
         } else {
-            throw new Error(item.name + ' 未安装，请执行cnpm i -S' + item.name)
+            throw new Error(item.name + ' 未安装，请执行cnpm i -S ' + item.name)
         }
     })
     // 根据isExternalJs，判断是否真正要忽略
