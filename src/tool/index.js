@@ -3,9 +3,9 @@ import Variables from './variables'
 import FormRules from './form-rules'
 
 export default {
-    install(Vue, router) {
+    install(Vue) {
         Vue.use(Variables)
         Vue.use(FormRules)
-        Vue.use(Method, router)
+        Vue.use(Method)
     }
 }

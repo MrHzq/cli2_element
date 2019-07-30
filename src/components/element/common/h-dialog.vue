@@ -2,7 +2,7 @@
  * @Author: hzq
  * @Date: 2019-02-15 14:48:22
  * @Last Modified by: hzq
- * @Last Modified time: 2019-07-30 14:42:06
+ * @Last Modified time: 2019-07-30 15:59:37
  * @文件说明: 弹窗组件
  */
 <template>
@@ -63,8 +63,8 @@
                     top: 0;
                     right: 0;
                     .el-dialog__close {
-                        padding: 18px;
                         @extend .f18;
+                        @extend .p18;
                     }
                 }
             }

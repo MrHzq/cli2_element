@@ -5,8 +5,8 @@ import router from './router'
 import hzqAxios from 'hzq-axios'
 import hzqTool from 'hzq-tool'
 import ElementUI from 'element-ui'
-import Clipboard from 'clipboard'
-import QRCode from 'qrcode'
+// import Clipboard from 'clipboard'
+// import QRCode from 'qrcode'
 import './components/global'
 import Tool from './tool/index'
 
@@ -56,36 +56,36 @@ Vue.prototype.$msg = Msg
 // ==================Element 方法 end==================
 
 // 复制粘贴方法
-Vue.prototype.$clipboard = className => {
-    const clipboard = new Clipboard(className)
-    clipboard.on('success', () => {
-        Msg('复制成功', 1)
-        // 释放内存
-        clipboard.destroy()
-    })
-    clipboard.on('error', () => {
-        Msg('该浏览器不支持复制')
-        // 释放内存
-        clipboard.destroy()
-    })
-}
+// Vue.prototype.$clipboard = className => {
+//     const clipboard = new Clipboard(className)
+//     clipboard.on('success', () => {
+//         Msg('复制成功', 1)
+//         // 释放内存
+//         clipboard.destroy()
+//     })
+//     clipboard.on('error', () => {
+//         Msg('该浏览器不支持复制')
+//         // 释放内存
+//         clipboard.destroy()
+//     })
+// }
 
 // 生成二维码方法
-Vue.prototype.$qrcode = (host = 'www.baidu.com', obj = {}) => {
-    return new Promise((resolve, reject) => {
-        QRCode.toDataURL(host, {
-            width: 250,
-            height: 250,
-            margin: 1,
-            ...obj
-        })
-            .then(qrcodeImgBase64Src => resolve(qrcodeImgBase64Src))
-            .catch(() => {
-                Msg('二维码生成错误，请重试')
-                reject(new Error('二维码生成错误，请重试'))
-            })
-    })
-}
+// Vue.prototype.$qrcode = (host = 'www.baidu.com', obj = {}) => {
+//     return new Promise((resolve, reject) => {
+//         QRCode.toDataURL(host, {
+//             width: 250,
+//             height: 250,
+//             margin: 1,
+//             ...obj
+//         })
+//             .then(qrcodeImgBase64Src => resolve(qrcodeImgBase64Src))
+//             .catch(() => {
+//                 Msg('二维码生成错误，请重试')
+//                 reject(new Error('二维码生成错误，请重试'))
+//             })
+//     })
+// }
 
 Vue.config.productionTip = false
 

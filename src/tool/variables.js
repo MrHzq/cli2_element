@@ -2,23 +2,20 @@
  * @Author: hzq
  * @Date: 2019-07-08 16:18:42
  * @Last Modified by: hzq
- * @Last Modified time: 2019-07-30 15:17:37
+ * @Last Modified time: 2019-07-30 15:55:40
  * @文件说明: Vue 全局变量 封装
  */
-import color from '@/style/color.scss'
 
 export default {
     install(Vue) {
         // 表单refs
         Vue.prototype.$formRefs = {}
-        Vue.prototype.$color = color
 
         // 每页数量
         Vue.prototype.$pageSize = 20
 
         // 分页是否开启路由模式
         Vue.prototype.$pageRouter = false
-
         // 是否为测试环境
         Vue.prototype.$istest = process.env.PATH_ENV === 'test'
 

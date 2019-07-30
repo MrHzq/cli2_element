@@ -2,7 +2,7 @@
  * @Author: hzq
  * @Date: 2019-03-07 10:17:28
  * @Last Modified by: hzq
- * @Last Modified time: 2019-07-30 14:46:36
+ * @Last Modified time: 2019-07-30 16:07:22
  * @文件说明: 单选组件
  */
 <template>
@@ -45,13 +45,6 @@
                     ]
                 }
             },
-            // 是否访问接口
-            api: {
-                type: Array,
-                default() {
-                    return []
-                }
-            },
             // 是否为按钮形式
             button: {
                 type: Boolean,
@@ -74,12 +67,6 @@
         methods: {
             saveData(val) {
                 this.$emit('change', val)
-                if (this.api.length) {
-                    let obj = { [this.api[1]]: val }
-                    if (this.api[2]) obj = Object.assign(obj, this.api[2])
-                    else obj.ActivityId = this.$id(this)
-                    this.$api[this.api[0]](obj).then(res => this.$resmsg(res))
-                }
             }
         }
     }

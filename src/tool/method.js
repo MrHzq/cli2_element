@@ -2,12 +2,12 @@
  * @Author: hzq
  * @Date: 2019-07-08 16:18:25
  * @Last Modified by: hzq
- * @Last Modified time: 2019-07-30 15:04:07
+ * @Last Modified time: 2019-07-30 15:55:48
  * @文件说明: Vue 全局方法 封装
  */
 
 export default {
-    install(Vue, router) {
+    install(Vue) {
         // 按照指定页数跳转页面
         Vue.prototype.$pageTo = (that, page = 1, query = null) => {
             const _query = that.$deepCopy(query || that.$route.query)
@@ -23,17 +23,12 @@ export default {
             that.$to(path || that.$route.path, _query)
         }
 
-        // 前端登出
-        Vue.prototype.$fedLogOut = () => {
-            Vue.$removeToken()
-            Vue.prototype.$tor('/login')
-        }
-
-        // 金额格式化方法：加￥和3位小数点
-        Vue.prototype.$fprice = (val, prefix = false) => {
-            val = Number(val)
-            if (isNaN(val)) val = 0
-            return (prefix ? prefix || '￥' : '') + val.toFixed(3)
+        // 页面相关的，处理参数的，并访问对应的方法
+        Vue.prototype.$handelFun = (that, api) => {
+            if (that.$query(that, 'page', 1) === 1) {
+                // 当 页码为 1 时，直接调用方法，更新数据
+                that[api]()
+            } else that.$pageTo(that) // 否则 跳转到 第一页
         }
 
         // 表格：根据传入的prop，将值渲染出来，可渲染金额格式的
@@ -80,25 +75,6 @@ export default {
             }
             _data = data
             return data
-        }
-
-        // 页面相关的，处理参数的，并访问对应的方法
-        Vue.prototype.$handelFun = (that, api) => {
-            if (that.$gquery(that, 'page', 1) === 1) {
-                // 当 页码为 1 时，直接调用方法，更新数据
-                that[api]()
-            } else that.$pageTo(that) // 否则 跳转到 第一页
-        }
-
-        // 以万为单位显示
-        Vue.prototype.$fnum = num => {
-            num = Number(num)
-            if (num) {
-                if (num >= 10000) {
-                    num = (num / 10000).toFixed(2) + '万'
-                }
-            } else num = 0
-            return num
         }
     }
 }
