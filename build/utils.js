@@ -128,18 +128,17 @@ const cdnConfig = [
     {
         name: 'vue-router',
         scope: 'VueRouter',
-        js: 'vue-router.min.js',
-        cndHttp: 'https://cdn.bootcss.com' // 当不使用默认的cnd镜像源时，可以配置这个
+        js: 'vue-router.min.js'
+        // cndHttp: 'https://cdn.bootcss.com' // 当不使用默认的cnd镜像源时，可以配置这个
     },
-    { name: 'vuex', scope: 'Vuex', js: 'vuex.min.js' }
-
-    // {
-    //     name: 'element-ui',
-    //     scope: 'ELEMENT',
-    //     js: 'index.js',
-    //     css: 'theme-chalk/index.css',
-    //     cndHttp: 'https://cdn.bootcss.com'
-    // }
+    { name: 'vuex', scope: 'Vuex', js: 'vuex.min.js' },
+    { name: 'axios', scope: 'axios', js: 'axios.min.js' },
+    {
+        name: 'element-ui',
+        scope: 'ELEMENT',
+        js: 'index.js',
+        css: 'theme-chalk/index.css'
+    }
 ]
 
 // 获取模块版本号

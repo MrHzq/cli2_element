@@ -30,6 +30,8 @@ module.exports = {
             {
                 SwitchCase: 1
             }
-        ]
+        ],
+        'vue/no-side-effects-in-computed-properties': 'off',
+        'no-useless-escape': 'off'
     }
 }
