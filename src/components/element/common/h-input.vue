@@ -2,7 +2,7 @@
  * @Author: hzq
  * @Date: 2019-02-13 14:17:31
  * @Last Modified by: hzq
- * @Last Modified time: 2019-07-30 15:58:33
+ * @Last Modified time: 2019-07-31 10:36:32
  * @文件说明: 输入框组件
  */
 <template>
@@ -31,6 +31,11 @@
             resize: {
                 type: String,
                 default: 'none'
+            },
+            // 输入框 最大长度
+            maxlength: {
+                type: String,
+                default: '8'
             }
         },
         data() {
